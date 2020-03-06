@@ -1237,7 +1237,7 @@ vars.put(&quot;clientId&quot;,clientId);</stringProp>
               </HeaderManager>
               <hashTree/>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Possible Parameters" enabled="true">
-                <stringProp name="TestPlan.comments">Extarct amount of paramethers avaialable after selecting Producers (availableParameters_matchNr)</stringProp>
+                <stringProp name="TestPlan.comments">Extarct amount of parameters avaialable after selecting Producers (availableParameters_matchNr)</stringProp>
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">availableParameters</stringProp>
                 <stringProp name="RegexExtractor.regex">&quot;node&quot;:([0-9]+),&quot;type&quot;:&quot;put&quot;,&quot;key&quot;:&quot;text&quot;,&quot;feat&quot;:[0-9]+,&quot;value&quot;:&quot;[^&quot;]*(temperature|precipitation|wind|sea){1}[^&quot;]*&quot;</stringProp>
@@ -1248,17 +1248,17 @@ vars.put(&quot;clientId&quot;,clientId);</stringProp>
               <hashTree/>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Id for the first span of the available parameters" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">unescaped</stringProp>
-                <stringProp name="RegexExtractor.refname">first_paramether_span</stringProp>
+                <stringProp name="RegexExtractor.refname">first_parameter_span</stringProp>
                 <stringProp name="RegexExtractor.regex">&quot;node&quot;:([0-9]+),&quot;type&quot;:&quot;splice&quot;,&quot;feat&quot;:[0-9]+,&quot;index&quot;:[0-9]+,&quot;addNodes&quot;:\[${availableParameters}</stringProp>
                 <stringProp name="RegexExtractor.template">$1$</stringProp>
                 <stringProp name="RegexExtractor.default"></stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="The first paramether key" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="The first parameter key" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                <stringProp name="RegexExtractor.refname">first_key_paramether</stringProp>
-                <stringProp name="RegexExtractor.regex">&quot;key&quot;:&quot;([0-9]+)&quot;,(&quot;selected&quot;:true,)?&quot;_renderer_[0-9]+&quot;:${first_paramether_span}</stringProp>
+                <stringProp name="RegexExtractor.refname">first_key_parameter</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;key&quot;:&quot;([0-9]+)&quot;,(&quot;selected&quot;:true,)?&quot;_renderer_[0-9]+&quot;:${first_parameter_span}</stringProp>
                 <stringProp name="RegexExtractor.template">$1$</stringProp>
                 <stringProp name="RegexExtractor.default"></stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -1266,19 +1266,19 @@ vars.put(&quot;clientId&quot;,clientId);</stringProp>
               <hashTree/>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Total amount of available parameters" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                <stringProp name="RegexExtractor.refname">amountAvailableParamethers</stringProp>
+                <stringProp name="RegexExtractor.refname">amountAvailableParameters</stringProp>
                 <stringProp name="RegexExtractor.regex">&quot;node&quot;:([0-9]+),&quot;type&quot;:&quot;put&quot;,&quot;key&quot;:&quot;text&quot;,&quot;feat&quot;:[0-9]+,&quot;value&quot;:&quot;[^&quot;]*(temperature|precipation|wind|sea){1}[^&quot;]*&quot;</stringProp>
                 <stringProp name="RegexExtractor.template"></stringProp>
                 <stringProp name="RegexExtractor.default"></stringProp>
                 <stringProp name="RegexExtractor.match_number">-1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Creating 2 random paramethers" enabled="true">
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Creating 2 random parameters" enabled="true">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
-                <stringProp name="script">int firstKe=Integer.parseInt(vars.get(&quot;first_key_paramether&quot;));
-int availableAmout= Integer.parseInt(vars.get(&quot;amountAvailableParamethers_matchNr&quot;));
+                <stringProp name="script">int firstKe=Integer.parseInt(vars.get(&quot;first_key_parameter&quot;));
+int availableAmout= Integer.parseInt(vars.get(&quot;amountAvailableParameters_matchNr&quot;));
 int sum=firstKe+availableAmout;
 Random rand = new Random();
 int n = rand.nextInt(availableAmout-1) + firstKe;
@@ -1720,7 +1720,7 @@ vars.put(&quot;availableLeadTimes_2&quot;,&quot;&quot; +second);
 vars.put(&quot;availableLeadTimes_5&quot;,&quot;&quot; +fifth);</stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="The first paramether key" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="The first parameter key" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">unescaped</stringProp>
                 <stringProp name="RegexExtractor.refname">first_key_leadTime</stringProp>
                 <stringProp name="RegexExtractor.regex">&quot;key&quot;:&quot;([0-9]+)&quot;,(&quot;selected&quot;:true,)?&quot;_renderer_[0-9]+&quot;:${availableLeadTimes_1}</stringProp>
@@ -1729,7 +1729,7 @@ vars.put(&quot;availableLeadTimes_5&quot;,&quot;&quot; +fifth);</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="The second paramether key" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="The second parameter key" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">unescaped</stringProp>
                 <stringProp name="RegexExtractor.refname">second_key_leadTime</stringProp>
                 <stringProp name="RegexExtractor.regex">&quot;key&quot;:&quot;([0-9]+)&quot;,(&quot;selected&quot;:true,)?&quot;_renderer_[0-9]+&quot;:${availableLeadTimes_2}</stringProp>
@@ -1738,7 +1738,7 @@ vars.put(&quot;availableLeadTimes_5&quot;,&quot;&quot; +fifth);</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="The 5.th paramether key" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="The 5.th parameter key" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">fifth_key_leadTime</stringProp>
                 <stringProp name="RegexExtractor.regex">&quot;key&quot;:&quot;([0-9]+)&quot;,(&quot;selected&quot;:true,)?&quot;_renderer_[0-9]+&quot;:${availableLeadTimes_5}</stringProp>
